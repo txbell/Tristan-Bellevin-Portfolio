@@ -2,6 +2,11 @@
     margin: 0;
 }
 
+:root {
+    --txtClr: #ff4b3e;
+    --bkgrClr: #6f1d1b;
+}
+
 body {
     display: grid;
     width: 100vw;
@@ -13,9 +18,9 @@ body {
 #txbImg {
     display: inline-grid;
     width: 20vw;
-    height: 30vh;
+    height: 20vh;
     grid-column-start: 5;
-    grid-row-start: 5;
+    grid-row-start: 6;
 }
 
 #abtMe {
@@ -24,7 +29,8 @@ body {
     grid-row: 3/span 2;
     text-align: center;
     padding: 50px 0;
-    background-color: whitesmoke;
+    background-color: var(--bkgrClr);
+    color: var(--txtClr);
 }
 
 #prjcts {
@@ -32,7 +38,8 @@ body {
     grid-column: 3/span 2;
     text-align: center;
     padding: 50px 0;
-    background-color: whitesmoke;
+    background-color: var(--bkgrClr);
+    color: var(--txtClr);
 }
 
 #resume {
@@ -40,11 +47,12 @@ body {
     grid-column: 4/span 2;
     text-align: center;
     padding: 50px 0;
-    background-color: whitesmoke;
+    background-color: var(--bkgrClr);
+    color: var(--txtClr);
 }
 
 .link {
-    background-color: whitesmoke;
+    text-align: center;
 }
 
 #lnk1 {
