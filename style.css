@@ -7,7 +7,7 @@
     --bkgrClr: #6f1d1b;
 }
 
-body {
+#home {
     display: grid;
     width: 100vw;
     height: 100vh;

@@ -10,7 +10,7 @@ const boxArr = [{row: "1/ span 5", column: "1/span 3",}, {row: "1/span 2", colum
     , {row: "3/span 2", column: "6/span 1",}, {row: "5/span 1", column: "4/span 1",}, ]
 const bckgrndColor = ["#582f0e", "#7f4f24", "#936639", "#a68a64", "#b6ad90", "#c2c5aa", "#a4ac86", "#656d4a", "#414833", "#333d29"]
 
-if (window.innerWidth > 600 && window.innerWidth < 1000) {
+if (window.innerWidth > 750 && window.innerWidth < 1000) {
     document.getElementById('txbImg').style.height = "30vh";
     document.getElementById('txbImg').style.gridRowStart = "5";
 } else if (window.innerWidth > 1000) {
@@ -20,7 +20,7 @@ if (window.innerWidth > 600 && window.innerWidth < 1000) {
     boxArr[8].row = "1/span 1"
     boxArr[9].row = "3/span 1"
     boxArr[10].row = "4/span 2"
-} else if (window.innerWidth < 600) {
+} else if (window.innerWidth < 750) {
     boxArr[10].column = "4/span 3"
 }
 
