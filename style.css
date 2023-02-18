@@ -13,49 +13,56 @@ body {
 #txbImg {
     display: inline-grid;
     width: 20vw;
-    height: 40vh;
+    height: 30vh;
     grid-column-start: 5;
-    grid-row-start: 4;
+    grid-row-start: 5;
 }
 
 #abtMe {
     display: inline-grid;
-    grid-column: 7/9;
-    grid-row: 3/5;
-    text-align: center;
-    padding: 50px 0;
-    background-color: blanchedalmond;
-}
-
-#prjcts {
-    grid-row: 6/8;
-    grid-column: 3/5;
-    text-align: center;
-    padding: 50px 0;
-    background-color: aliceblue;
-}
-
-#resume {
-    grid-row: 2/4;
-    grid-column: 4/6;
+    grid-column: 7/span 2;
+    grid-row: 3/span 2;
     text-align: center;
     padding: 50px 0;
     background-color: whitesmoke;
 }
 
+#prjcts {
+    grid-row: 6/span 2;
+    grid-column: 3/span 2;
+    text-align: center;
+    padding: 50px 0;
+    background-color: whitesmoke;
+}
+
+#resume {
+    grid-row: 3/span 2;
+    grid-column: 4/span 2;
+    text-align: center;
+    padding: 50px 0;
+    background-color: whitesmoke;
+}
+
+.link {
+    background-color: whitesmoke;
+}
+
 #lnk1 {
-    grid-column: 5/6;
-    grid-row: 8/9;
+    grid-column: 4/span 1;
+    grid-row: 8/span 1;
 }
 
 #lnk2 {
-    grid-column: 6/7;
-    grid-row: 8/9;
+    grid-column: 5/span 1;
+    grid-row: 8/span 1;
 }
 
-.emptBox {
-    display: inline-grid;
-    grid-column: 3/4;
-    grid-row: 3/5;
-    background-color: blue;
+#lnk3 {
+    grid-column: 6/span 1;
+    grid-row: 8/span 1;
+}
+
+#lnk4 {
+    grid-column: 7/span 1;
+    grid-row: 8/span 1;
 }
