@@ -82,7 +82,12 @@ h1.col-5.gy-5 {
     margin-bottom: 5vh;
 }
 
-#proj1Mod {
+#proj {
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 10px;
+}
+
+.projMod {
     background-color: rgba(0, 0, 0, .3);
     position: fixed;
     top: 0;
@@ -94,13 +99,17 @@ h1.col-5.gy-5 {
     display: none;
 }
 
-#proj1Box {
-    background-color: white;
+.projBox {
+    background-color: rgba(255,255,255,1);
     height: 100vh;
     width: 85vw;
     border-radius: 10px;
     margin: 150px auto;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, .9);
+}
+
+.projFoot {
+    color: blue;
 }
 
 #txbImg {
@@ -208,20 +217,32 @@ h3.tit {
     border-radius: 10px;
 }
 
-#hobTxt {
+.hobTxt {
     text-align: center;
     font-size: 3vh;
     text-decoration: none;
     color: black;
+    display: none;
 }
 
-#hobInfo {
+#hobTxtFirst {
+    display: block;
+}
+
+#hobInfoFirst {
+    display: block;
+}
+
+.hobInfo {
     text-align: left;
     margin-top: 5vh;
     background-color: rgba(0, 0, 0, .2);
     border-radius: 10px;
     padding: 2vh 0;
     padding: 10px 10px;
+    text-decoration: none;
+    color: black;
+    display: none;
 }
 
 button.col-3 {

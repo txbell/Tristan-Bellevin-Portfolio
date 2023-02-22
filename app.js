@@ -50,8 +50,8 @@ for (let i = 0; i < boxArr.length; i++) {
     Burgah.addEventListener('click', Borgir)
     function Borgir () {
         if (openB === false) {
-            modalBurgah.style.display = 'block'
-            openB = true
+            modalBurgah.style.display = 'block';
+            openB = true;
         } else {
             modalBurgah.style.display = 'none'
             openB = false
@@ -60,15 +60,16 @@ for (let i = 0; i < boxArr.length; i++) {
 
     // Proj Modals
     const openProj1 = document.getElementById('proj1')
-    const modalP1 = document.getElementById('proj1Mod')
+    const modalP1 = document.getElementsByClassName('projMod')
     const closeP1 = document.getElementById('close1')
 
     openProj1.addEventListener('click', openP1)
     function openP1 () {
-        modalP1.style.display = 'block'
+        console.log(modalP1)
+        modalP1[0].style.display = 'block'
     }
     function byeP1 () {
-        modalP1.style.display = 'none'
+        modalP1[0].style.display = 'none'
     }
     closeP1.addEventListener('click', byeP1)
 } else if (window.location.pathname === "/Tristan-Bellevin-Portfolio/about-me.html") {
@@ -87,6 +88,40 @@ for (let i = 0; i < boxArr.length; i++) {
             openB = false
         }
     }
+
+    // Hobbies Carousel
+    let currentImgIndex = 0;
+    let previousImgIndex = 0;
+    const main = document.getElementsByClassName('hobTxt');
+    const sub = document.getElementsByClassName('hobInfo');
+
+
+    const next = document.getElementById('abtNext')    
+    next.addEventListener('click', () => {
+        moveImage(1)
+    })
+
+    const prev = document.getElementById('abtPrev')    
+    prev.addEventListener('click', () => {
+        moveImage(-1)
+    })
+
+    function moveImage (dir) {
+        previousImgIndex = currentImgIndex;
+        currentImgIndex = currentImgIndex + dir
+        if (currentImgIndex >= main.length) {
+            currentImgIndex = 0;
+        } else if (currentImgIndex < 0) {
+            currentImgIndex = main.length - 1;
+        }
+        console.log(previousImgIndex)
+        console.log(document.getElementsByClassName('hobTxt'))
+        main[previousImgIndex].style.display = 'none'
+        main[currentImgIndex].style.display = 'block'
+        sub[previousImgIndex].style.display = 'none'
+        sub[currentImgIndex].style.display = 'block'
+    }
+
 } else if (window.location.pathname === "/Tristan-Bellevin-Portfolio/resume.html") {
     // Burgah Modal
     const Burgah = document.getElementById('BurgahBar')
