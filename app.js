@@ -4,6 +4,8 @@
 //  as well as a random background color (maybe from a preset collection)
 
 // array of objects that contain possible row and column values for each box
+console.log(window.location)
+if (window.location.pathname === "/Tristan-Bellevin-Portfolio/home.html") {
 const boxArr = [{row: "1/ span 5", column: "1/span 3",}, {row: "1/span 2", column: "6/span 3",}, {row: "1/span 4", column: "9/span 2",}
     , {row: "5/span 3", column: "7/span 4",}, {row: "8/span 3", column: "8/span 3",}, {row: "9/span 2", column: "4/span 4",}
     , {row: "8/span 3", column: "1/span 3",}, {row: "6/span 2", column: "1/span 2",}, {row: "1/span 2", column: "4/span 2",}
@@ -39,3 +41,68 @@ function makeDiv (x) {
 for (let i = 0; i < boxArr.length; i++) {
     makeDiv(i)
 }
+} else if (window.location.pathname === "/Tristan-Bellevin-Portfolio/projects.html") {
+    // Burgah Modal
+    const Burgah = document.getElementById('BurgahBar')
+    const modalBurgah = document.getElementById('modalBurgah')
+    let openB = false;
+
+    Burgah.addEventListener('click', Borgir)
+    function Borgir () {
+        if (openB === false) {
+            modalBurgah.style.display = 'block'
+            openB = true
+        } else {
+            modalBurgah.style.display = 'none'
+            openB = false
+        }
+    }
+
+    // Proj Modals
+    const openProj1 = document.getElementById('proj1')
+    const modalP1 = document.getElementById('proj1Mod')
+    const closeP1 = document.getElementById('close1')
+
+    openProj1.addEventListener('click', openP1)
+    function openP1 () {
+        modalP1.style.display = 'block'
+    }
+    function byeP1 () {
+        modalP1.style.display = 'none'
+    }
+    closeP1.addEventListener('click', byeP1)
+} else if (window.location.pathname === "/Tristan-Bellevin-Portfolio/about-me.html") {
+    // Burgah Modal
+    const Burgah = document.getElementById('BurgahBar')
+    const modalBurgah = document.getElementById('modalBurgah')
+    let openB = false;
+
+    Burgah.addEventListener('click', Borgir)
+    function Borgir () {
+        if (openB === false) {
+            modalBurgah.style.display = 'block'
+            openB = true
+        } else {
+            modalBurgah.style.display = 'none'
+            openB = false
+        }
+    }
+} else if (window.location.pathname === "/Tristan-Bellevin-Portfolio/resume.html") {
+    // Burgah Modal
+    const Burgah = document.getElementById('BurgahBar')
+    const modalBurgah = document.getElementById('modalBurgah')
+    let openB = false;
+
+    Burgah.addEventListener('click', Borgir)
+    function Borgir () {
+        if (openB === false) {
+            modalBurgah.style.display = 'block'
+            openB = true
+        } else {
+            modalBurgah.style.display = 'none'
+            openB = false
+        }
+    }
+}
+
+console.log("JS ran")
