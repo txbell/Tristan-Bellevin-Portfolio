@@ -9,24 +9,36 @@ if (sessionStorage.getItem('number') === null) {
     sessionStorage.setItem('number', '0')
 }
 if (window.location.pathname === "/Tristan-Bellevin-Portfolio/home.html") {
-const boxArr = [{row: "1/ span 5", column: "1/span 3",}, {row: "1/span 2", column: "6/span 3",}, {row: "1/span 4", column: "9/span 2",}
-    , {row: "5/span 3", column: "7/span 4",}, {row: "8/span 3", column: "8/span 3",}, {row: "9/span 2", column: "4/span 4",}
-    , {row: "8/span 3", column: "1/span 3",}, {row: "6/span 2", column: "1/span 2",}, {row: "1/span 1", column: "4/span 2",}
-    , {row: "3/span 2", column: "6/span 1",}, {row: "5/span 1", column: "4/span 1",}, ]
+
+// creating array of grid space I want the boxes to take up
+const boxArr = [ {row: "1/ span 5", column: "1/span 3",}, {row: "1/ span 1", column: "4/span 2",}, 
+    {row: "1/ span 3", column: "6/span 2",}, {row: "1/ span 2", column: "8/span 3",}, {row: "3/ span 2", column: "10/span 1",}, 
+    {row: "5/ span 3", column: "8/span 2",}, {row: "5/ span 6", column: "10/span 1",}, {row: "8/ span 3", column: "8/span 2",}, 
+    {row: "9/ span 2", column: "4/span 4",},  {row: "8/ span 3", column: "1/span 3",}, {row: "6/ span 2", column: "1/span 1",},]
+
+// creating array with colors
 const bckgrndColor = ["#ffffff", "rgba(93, 177, 223, 0.95)", "rgb(20, 0, 123)"]
 
+// If statement tests what the window width is upon page load
 if (window.innerWidth > 768 && window.innerWidth < 992) {
-    document.getElementById('txbImgCont').style.height = "30vh";
-    document.getElementById('prjcts').style.gridColumn = "2/span 2";
+    for (let i = 0; i < boxArr.length; i++) {
+        makeDiv(i)
+    }
 } else if (window.innerWidth > 992) {
-    document.getElementById('txbImgCont').style.height = "40vh";
-    document.getElementById('txbImgCont').style.gridRowStart = "4";
-    boxArr[9].row = "3/span 1"
-    boxArr[10].row = "4/span 2"
+    boxArr.push({row: "4/ span 2", column: "4/span 1",}, {row: "5/ span 3", column: "7/span 1",}, {row: "3/ span 1", column: "6/span 1",},)
+    boxArr[2].row = '1/span 2'
+    boxArr[4].column = '9/span 2'
+    boxArr[10].column = '1/span 2'
+    for (let i = 0; i < boxArr.length; i++) {
+        makeDiv(i)
+    }
 } else if (window.innerWidth < 768) {
-    boxArr[10].column = "4/span 3"
     document.getElementById('prjcts').style.gridColumn = "2/span 2";
+    for (let i = 0; i < boxArr.length; i++) {
+        makeDiv(i)
+    }
 }
+console.log(document.getElementsByClassName('clrBxs'))
 
 // function that creates an empty div with an id of "box " + its number, then adds a grid position, 
 // then adds a background color, then adds it as a child of the body.
@@ -34,29 +46,27 @@ function makeDiv (x) {
     const deev = document.createElement('div')
     const bod = document.body
     deev.setAttribute('id', `colrBox${x}`)
+    deev.setAttribute('class', 'clrBxs')
     deev.style.gridRow = boxArr[x].row;
     deev.style.gridColumn = boxArr[x].column;
     deev.style.backgroundColor = bckgrndColor[Math.floor(Math.random() * bckgrndColor.length)]
     if (x === 6) {
         deev.addEventListener('click', () => {
-
+    
             if (sessionStorage.getItem('number') === "0") {
             sessionStorage.setItem('meme', "true")
             sessionStorage.setItem('number', '1')
             } else if (sessionStorage.getItem('number') === "1") {
                 sessionStorage.setItem('meme', 'false')
                 sessionStorage.setItem('number', '0')
-                }
-            console.log(sessionStorage.getItem('number'))
+            }
             console.log(sessionStorage.getItem('meme'))
         })
     }
     bod.append(deev)
 }
 
-for (let i = 0; i < boxArr.length; i++) {
-    makeDiv(i)
-}
+
 } else if (window.location.pathname === "/Tristan-Bellevin-Portfolio/projects.html") {
     // Burgah Modal
     const Burgah = document.getElementById('BurgahBar')
