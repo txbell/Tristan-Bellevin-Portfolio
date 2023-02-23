@@ -4,26 +4,28 @@
 //  as well as a random background color (maybe from a preset collection)
 
 // array of objects that contain possible row and column values for each box
-console.log(window.location)
+console.log(window.location.pathname)
+if (sessionStorage.getItem('number') === null) {
+    sessionStorage.setItem('number', '0')
+}
 if (window.location.pathname === "/Tristan-Bellevin-Portfolio/home.html") {
 const boxArr = [{row: "1/ span 5", column: "1/span 3",}, {row: "1/span 2", column: "6/span 3",}, {row: "1/span 4", column: "9/span 2",}
     , {row: "5/span 3", column: "7/span 4",}, {row: "8/span 3", column: "8/span 3",}, {row: "9/span 2", column: "4/span 4",}
-    , {row: "8/span 3", column: "1/span 3",}, {row: "6/span 2", column: "1/span 2",}, {row: "1/span 2", column: "4/span 2",}
+    , {row: "8/span 3", column: "1/span 3",}, {row: "6/span 2", column: "1/span 2",}, {row: "1/span 1", column: "4/span 2",}
     , {row: "3/span 2", column: "6/span 1",}, {row: "5/span 1", column: "4/span 1",}, ]
-const bckgrndColor = ["#582f0e", "#7f4f24", "#936639", "#a68a64", "#b6ad90", "#c2c5aa", "#a4ac86", "#656d4a", "#414833", "#333d29"]
+const bckgrndColor = ["#ffffff", "rgba(93, 177, 223, 0.95)", "rgb(20, 0, 123)"]
 
-if (window.innerWidth > 750 && window.innerWidth < 1000) {
-    document.getElementById('txbImg').style.height = "30vh";
-    document.getElementById('txbImg').style.gridRowStart = "5";
-} else if (window.innerWidth > 1000) {
-    document.getElementById('txbImg').style.height = "40vh";
-    document.getElementById('txbImg').style.gridRowStart = "4";
-    document.getElementById('resume').style.gridRow = "2/span 2";
-    boxArr[8].row = "1/span 1"
+if (window.innerWidth > 768 && window.innerWidth < 992) {
+    document.getElementById('txbImgCont').style.height = "30vh";
+    document.getElementById('prjcts').style.gridColumn = "2/span 2";
+} else if (window.innerWidth > 992) {
+    document.getElementById('txbImgCont').style.height = "40vh";
+    document.getElementById('txbImgCont').style.gridRowStart = "4";
     boxArr[9].row = "3/span 1"
     boxArr[10].row = "4/span 2"
-} else if (window.innerWidth < 750) {
+} else if (window.innerWidth < 768) {
     boxArr[10].column = "4/span 3"
+    document.getElementById('prjcts').style.gridColumn = "2/span 2";
 }
 
 // function that creates an empty div with an id of "box " + its number, then adds a grid position, 
@@ -35,6 +37,20 @@ function makeDiv (x) {
     deev.style.gridRow = boxArr[x].row;
     deev.style.gridColumn = boxArr[x].column;
     deev.style.backgroundColor = bckgrndColor[Math.floor(Math.random() * bckgrndColor.length)]
+    if (x === 6) {
+        deev.addEventListener('click', () => {
+
+            if (sessionStorage.getItem('number') === "0") {
+            sessionStorage.setItem('meme', "true")
+            sessionStorage.setItem('number', '1')
+            } else if (sessionStorage.getItem('number') === "1") {
+                sessionStorage.setItem('meme', 'false')
+                sessionStorage.setItem('number', '0')
+                }
+            console.log(sessionStorage.getItem('number'))
+            console.log(sessionStorage.getItem('meme'))
+        })
+    }
     bod.append(deev)
 }
 
@@ -47,44 +63,110 @@ for (let i = 0; i < boxArr.length; i++) {
     const modalBurgah = document.getElementById('modalBurgah')
     let openB = false;
 
+    document.getElementById('myVideo').pause()
     Burgah.addEventListener('click', Borgir)
     function Borgir () {
         if (openB === false) {
-            modalBurgah.style.display = 'block';
-            openB = true;
+            modalBurgah.style.display = 'block'
+            if (sessionStorage.getItem('meme') === "true") {
+                document.getElementById('daRest').style.opacity = '.25'
+                document.getElementById('myVideo').style.display = 'block'
+                document.getElementById('myVideo').play()
+                document.querySelector(':root').style.setProperty('--inPgBkgrClr', 'red')
+            }
+            openB = true
         } else {
             modalBurgah.style.display = 'none'
+            if (sessionStorage.getItem('meme') === "true") {
+                document.getElementById('myVideo').style.display = 'none'
+                document.getElementById('myVideo').pause()
+                document.getElementById('daRest').style.opacity = '1'
+                document.querySelector(':root').style.setProperty('--inPgBkgrClr', 'rgba(93, 177, 223, 0.95)')
+            }
             openB = false
         }
     }
 
-    // Proj Modals
-    const openProj1 = document.getElementById('proj1')
-    const modalP1 = document.getElementsByClassName('projMod')
-    const closeP1 = document.getElementById('close1')
 
-    openProj1.addEventListener('click', openP1)
-    function openP1 () {
-        console.log(modalP1)
-        modalP1[0].style.display = 'block'
+
+    const projects = document.getElementsByClassName('projImg');
+    const projTxts = document.getElementsByClassName('projTxt');
+    const projTitle = ["Hangman", "Space Battle"];
+    const projDesc = ["Hangman Game in Browser", "Space Battle in Console"]
+    let currentProj = 0;
+
+    for (let i = 0; i < projects.length; i++) {
+        function openProj (x) {
+            for (let d = 0; d < projects.length; d++) {
+                projTxts[d].style.display = "none"
+            }
+            document.getElementsByClassName('projTit')[0].innerText = `Project ${x + 1}: ${projTitle[x]}`
+            document.getElementsByClassName('projDesc')[0].innerText = `${projDesc[x]}.`
+            projTxts[x].style.display = "flex"
+            currentProj = x;
+        }
+        function selectedProj (x) {
+            for (let d = 0; d < projects.length; d++) {
+                projects[d].style.border = "none"
+            }
+            projects[x].style.border = "2px solid blue"
+        }
+        projects[i].addEventListener('click', () => {
+            selectedProj(i)
+            openProj(i)
+        })
     }
-    function byeP1 () {
-        modalP1[0].style.display = 'none'
-    }
-    closeP1.addEventListener('click', byeP1)
+
+    const leftArr = document.getElementsByClassName('lnr lnr-chevron-left col-12 col-lg-1')
+    const rightArr = document.getElementsByClassName('lnr lnr-chevron-right col-12 col-lg-1')
+    leftArr[0].addEventListener('click', () => {
+        if (currentProj === 0) {
+            selectedProj(projects.length - 1)
+            openProj(projects.length - 1)
+        } else {
+            selectedProj(currentProj - 1)
+            openProj(currentProj - 1)
+        }
+    })
+    rightArr[0].addEventListener('click', () => {
+        if (currentProj === projects.length - 1) {
+            selectedProj(0)
+            openProj(0)
+        } else {
+            selectedProj(currentProj + 1)
+            openProj(currentProj + 1)
+        }
+    })
+
 } else if (window.location.pathname === "/Tristan-Bellevin-Portfolio/about-me.html") {
     // Burgah Modal
     const Burgah = document.getElementById('BurgahBar')
     const modalBurgah = document.getElementById('modalBurgah')
     let openB = false;
-
+    document.getElementById('myVideo').pause()
     Burgah.addEventListener('click', Borgir)
     function Borgir () {
         if (openB === false) {
             modalBurgah.style.display = 'block'
+            if (sessionStorage.getItem('meme') === "true") {
+                document.getElementById('myVideo').style.display = 'block'
+                document.getElementById('myVideo').play()
+                document.getElementById('theRest').style.opacity = '.25'
+                document.querySelector(':root').style.setProperty('--inPgBkgrClr', 'red')
+            }
+            console.log(sessionStorage.getItem('number'))
+            console.log(sessionStorage.getItem('meme'))
             openB = true
         } else {
             modalBurgah.style.display = 'none'
+            if (sessionStorage.getItem('meme') === "true") {
+                document.getElementById('myVideo').style.display = 'none'
+                document.getElementById('myVideo').pause()
+                document.getElementById('theRest').style.opacity = '1'
+                document.querySelector(':root').style.setProperty('--inPgBkgrClr', 'rgba(93, 177, 223, 0.95)')
+            }
+            console.log(sessionStorage.getItem('number'))
+            console.log(sessionStorage.getItem('meme'))
             openB = false
         }
     }
@@ -127,14 +209,29 @@ for (let i = 0; i < boxArr.length; i++) {
     const Burgah = document.getElementById('BurgahBar')
     const modalBurgah = document.getElementById('modalBurgah')
     let openB = false;
-
+    document.getElementById('myVideo').pause()
+    console.log(sessionStorage.getItem('meme'))
     Burgah.addEventListener('click', Borgir)
     function Borgir () {
         if (openB === false) {
             modalBurgah.style.display = 'block'
+            if (sessionStorage.getItem('meme') === "true") {
+                document.getElementById('myVideo').style.display = 'block'
+                document.getElementById('myVideo').play()
+                document.getElementById('resumeImg').style.opacity = '.25'
+                document.querySelector(':root').style.setProperty('--inPgBkgrClr', 'red')
+                document.querySelector(':root').style.setProperty('--txtClr', 'aqua')
+            }
             openB = true
         } else {
             modalBurgah.style.display = 'none'
+            if (sessionStorage.getItem('meme') === "true") {
+                document.getElementById('myVideo').style.display = 'none'
+                document.getElementById('myVideo').pause()
+                document.getElementById('resumeImg').style.opacity = '1'
+                document.querySelector(':root').style.setProperty('--inPgBkgrClr', 'rgba(93, 177, 223, 0.95)')
+                document.querySelector(':root').style.setProperty('--txtClr', 'rgb(20, 0, 123)')
+            }
             openB = false
         }
     }

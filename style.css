@@ -1,20 +1,88 @@
+/* UNIVERSAL */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
     margin: 0;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
+    color: rgb(20, 0, 123);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 :root {
-    --txtClr: #ff4b3e;
-    --bkgrClr: #b6ad90;
+    --txtClr: rgb(20, 0, 123);
+    --bkgrClr: #ffffff;
+    --inPgBkgrClr: rgba(93, 177, 223, 0.95);
+    --inPgInnerClr: rgba(255,255,255,.7)
 }
 
 #titBar {
     padding-top: 2vh;
 }
 
+
+#title {
+    text-align: center;
+    display: inline;
+    color: var(--txtClr);
+}
+
+#modalBurgah {
+    margin-left: 76vw;
+    background-color: var(--inPgBkgrClr);
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 10vh;
+    z-index: 1;
+    overflow: auto;
+    display: none;
+    text-align: center;
+    padding: 10px 0;
+    border: 3px solid rgb(0,0,0);
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* Inspiration for Burger Bar from https://uiverse.io/cssbuttons-io/brown-otter-21 */
+#BurgahBar {
+    background-color: var(--inPgBkgrClr);
+    border: 3px solid var(--txtClr);
+    display: inline-block;
+    text-align: center;
+    padding: .75em 0;
+}
+
+.modB {
+    text-decoration: none;
+    color: var(--txtClr)k;
+    background-color: rgba(255, 255, 255, .3);
+    margin-bottom: 1vh;
+    color: var(--txtClr);
+}
+
+span#bText {
+    text-decoration: none;
+}
+
+article:link { text-decoration: none; color: var(--txtClr); padding: 3px 0; background-color: rgba(0, 0, 0, .4); margin: 2px}
+article:visited { text-decoration: none; color: var(--txtClr); padding: 3px 0; background-color: rgba(0, 0, 0, .4); margin: 2px}
+article:hover { text-decoration: none; color: var(--txtClr); padding: 3px 0; background-color: rgba(0, 0, 0, .4); margin: 2px}
+article:active { text-decoration: none; color: var(--txtClr); padding: 3px 0; background-color: rgba(0, 0, 0, .4); margin: 2px}
+
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 101%;
+    min-height: 100%;
+    z-index: -1;
+    display: none;
+  }
+
+/* Home Page */
 #homePg {
     display: grid;
     width: 100vw;
@@ -23,101 +91,21 @@
     grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 }
 
-#projectsPg {
-    background-color: var(--bkgrClr);
-}
-
-#about-mePg {
-    background-color: var(--bkgrClr);
-}
-
-#resumePg {
-    background-color: var(--bkgrClr);
-}
-
-#title {
-    text-align: center;
-    display: inline;
-}
-.row.gy-1 {
-    padding-top: 5vh;
-}
-
-#modalBurgah {
-    margin-left: 76vw;
-    background-color: rgba(0, 0, 0, .3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-top: 9vh;
-    z-index: 1;
-    overflow: auto;
-    display: none;
-    text-align: center;
-    padding: 10px 0;
-    border: 3px solid rgb(0,0,0);
-    text-decoration: none;
-    color: black;
-    text-transform: none;
-}
-
-.modB {
-    text-decoration: none;
-    color: black;
-    background-color: rgba(0, 0, 0, .3);
-    margin-bottom: 1vh;
-}
-
-span#bText {
-    text-decoration: none;
-}
-
-article:link { text-decoration: none; color: black; padding: 3px 0; background-color: rgba(0, 0, 0, .4); margin: 2px}
-article:visited { text-decoration: none; color: black; padding: 3px 0; background-color: rgba(0, 0, 0, .4); margin: 2px}
-article:hover { text-decoration: none; color: black; padding: 3px 0; background-color: rgba(0, 0, 0, .4); margin: 2px}
-article:active { text-decoration: none; color: black; padding: 3px 0; background-color: rgba(0, 0, 0, .4); margin: 2px}
-
-h1.col-5.gy-5 {
-    margin-top: 10vh;
-    margin-bottom: 5vh;
-}
-
-#proj {
-    background-color: rgba(0, 0, 0, .2);
-    border-radius: 10px;
-}
-
-.projMod {
-    background-color: rgba(0, 0, 0, .3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    overflow: auto;
-    display: none;
-}
-
-.projBox {
-    background-color: rgba(255,255,255,1);
-    height: 100vh;
-    width: 85vw;
-    border-radius: 10px;
-    margin: 150px auto;
-    box-shadow: 20px 20px 20px rgba(0, 0, 0, .9);
-}
-
-.projFoot {
-    color: blue;
+#txbImgCont {
+    display: inline-grid;
+    grid-column-start: 5;
+    grid-row-start: 4;
+    width: 20vw;
+    height: 20vh;
+    background-color: var(--inPgBkgrClr);
+    justify-content: center;
+    align-items: center;
 }
 
 #txbImg {
-    display: inline-grid;
-    width: 20vw;
-    height: 20vh;
-    grid-column-start: 5;
-    grid-row-start: 6;
+    display: flex;
+    width: 220px;
+    height: 275px;
 }
 
 #abtMe {
@@ -125,41 +113,42 @@ h1.col-5.gy-5 {
     grid-column: 7/span 2;
     grid-row: 3/span 2;
     text-align: center;
-    padding: 70px 0;
-    font-size: 2vw;
-    background-color: var(--bkgrClr);
+    padding: 6vw 0;
+    font-size: 30px;
+    background-color: var(--inPgBkgrClr);
     color: var(--txtClr);
     text-decoration: none;
-    border: 1px solid black;
+    border: 1px solid var(--txtClr);
 }
 
 #prjcts {
     grid-row: 6/span 2;
     grid-column: 3/span 2;
     text-align: center;
-    padding: 70px 0;
-    font-size: 2vw;
-    background-color: var(--bkgrClr);
+    padding: 6vw 0;
+    font-size: 30px;
+    background-color: var(--inPgBkgrClr);
     color: var(--txtClr);
     text-decoration: none;
-    border: 1px solid black;
+    border: 1px solid var(--txtClr);
 }
 
 #resume {
-    grid-row: 3/span 2;
+    grid-row: 2/span 2;
     grid-column: 4/span 2;
     text-align: center;
-    padding: 70px 0;
-    font-size: 2vw;
-    background-color: var(--bkgrClr);
+    padding: 6vw 0;
+    font-size: 30px;
+    background-color: var(--inPgBkgrClr);
     color: var(--txtClr);
     text-decoration: none;
-    border: 1px solid black;
+    border: 1px solid var(--txtClr);
 }
 
 .link {
     text-align: center;
     z-index: 1;
+    border: .5px solid var(--txtClr)
 }
 
 #lnk1 {
@@ -182,38 +171,42 @@ h1.col-5.gy-5 {
     grid-row: 8/span 1;
 }
 
-/* Inspiration for Burger Bar from https://uiverse.io/cssbuttons-io/brown-otter-21 */
-#BurgahBar {
-    background-color: rgba(0, 0, 0, .5);
-    border: 3px solid rgb(0,0,0);
-    display: inline-block;
-    text-align: center;
-    padding: .75em 0;
+@media only screen and (min-width: 992px) {
+    txbImgCont {
+        grid-column-start: 4;
+    }
 }
 
 /* About Me */
 
-h1.col-5.gy-5 {
-    background-color: rgba(0, 0, 0, .2);
+#about-mePg {
+    background-image: url(IMG_0316.png);
+    background-size: 101%;
+    background-repeat: no-repeat;
+    background-position-y: 30%;
+}
+
+h1.col-6.gy-5 {
+    background-color: var(--inPgBkgrClr);
     border-radius: 10px;
     text-align: center;
+    padding: 30px;
 }
 
 a#abtMeTxt {
-    background-color: rgba(0, 0, 0, .2);
+    background-color: var(--inPgInnerClr);
     border-radius: 10px;
 }
 
-div.col-4.gy-5 {
-    background-color: rgba(0, 0, 0, .2);
+div.col-10.col-lg-4.gy-5 {
+    background-color: var(--inPgBkgrClr);
     border-radius: 2vh;
     padding: 30px;
 }
 
 h3.tit {
-    margin-bottom: 10vh;
-    margin-top: 3vh;
-    background-color: rgba(0, 0, 0, .2);
+    margin-bottom: 5vh;
+    background-color: var(--inPgInnerClr);
     border-radius: 10px;
 }
 
@@ -221,7 +214,7 @@ h3.tit {
     text-align: center;
     font-size: 3vh;
     text-decoration: none;
-    color: black;
+    color: var(--txtClr);
     display: none;
 }
 
@@ -236,15 +229,119 @@ h3.tit {
 .hobInfo {
     text-align: left;
     margin-top: 5vh;
-    background-color: rgba(0, 0, 0, .2);
+    background-color: var(--inPgInnerClr);
     border-radius: 10px;
     padding: 2vh 0;
     padding: 10px 10px;
     text-decoration: none;
-    color: black;
+    color: var(--txtClr);
     display: none;
 }
 
 button.col-3 {
-    background-color: rgba(0, 0, 0, .2);
+    background-color: var(--inPgInnerClr);
+}
+
+@media only screen and (max-width: 768px) {
+    #about-mePg {
+        background-image: none;
+        background-color: rgba(50, 132, 209, 0.95);
+    }
+}
+
+/* Projects */
+
+#daRest {
+    opacity: 1;
+}
+
+#projectsPg {
+    background-color: var(--inPgBkgrClr);
+}
+
+
+.row.gy-1 {
+    margin-top: 3vh;
+    padding: 5vh 0;
+    background-color: var(--inPgBkgrClr);
+}
+
+.lnr.lnr-chevron-left.col-12.col-lg-1 {
+    font-size: 10vh;
+    padding: 4vh 0;
+    border: 2px solid var(--txtClr);
+    margin: 0 3vw;
+    text-align: center;
+}
+
+.lnr.lnr-chevron-right.col-12.col-lg-1 {
+    font-size: 10vh;
+    padding: 4vh 0;
+    border: 2px solid var(--txtClr);
+    margin: 0 3vw;
+    text-align: center;
+}
+
+#proj1Img {
+    border: 2px solid blue;
+}
+
+.projImg {
+    padding: 0;
+    margin: 0 5px;
+}
+
+#proj {
+    background-color: var(--inPgBkgrClr);
+    border-radius: 10px;
+}
+
+.projMod {
+    background-color: var(--inPgBkgrClr);
+    overflow: auto;
+}
+
+.projBox {
+    background-color: var(--inPgInnerClr);
+    border-radius: 10px;
+    width: 85%;
+    margin: 7vh auto;
+    box-shadow: 20px 20px 20px var(--inPgBkgrClr);
+    display: flex;
+    flex-direction: column;
+}
+
+div.projHead {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    text-align: center;
+}
+
+.projName {
+    background-color: var(--inPgBkgrClr);
+    border-radius: 10px;
+    padding-bottom: 5px;
+}
+
+.projCont {
+    margin: 10px 10vw;
+    padding: 10px auto;
+}
+
+.projTxt {
+    display: none;
+}
+
+#proj1Txt {
+    display: flex;
+}
+
+/* Resume */
+
+#resumePg {
+    background-color: var(--inPgBkgrClr);
+}
+
+img.col-8.gy-5 {
+    opacity: 1;
 }
