@@ -101,8 +101,10 @@ function makeDiv (x) {
 
     const projects = document.getElementsByClassName('projImg');
     const projTxts = document.getElementsByClassName('projTxt');
-    const projTitle = ["Hangman", "Space Battle"];
-    const projDesc = ["Hangman Game in Browser", "Space Battle in Console"]
+    const projLnk = document.getElementById('projGit')
+    const projTitle = ["Hangman", "Space Battle", "Portfolio", "Rock, Paper, Scissors"];
+    const projDesc = ["Hangman Game in Browser", "Space Battle in Console", "This Website", "Simple game"]
+    const projGit = ["https://git.generalassemb.ly/txbell/DLVR-Hangman", "https://git.generalassemb.ly/txbell/DLVR-Space-Battle", "https://github.com/txbell/Tristan-Bellevin-Portfolio", "https://codepen.io/txbell/pen/NWBBNqO"]
     let currentProj = 0;
 
     for (let i = 0; i < projects.length; i++) {
@@ -112,6 +114,8 @@ function makeDiv (x) {
             }
             document.getElementsByClassName('projTit')[0].innerText = `Project ${x + 1}: ${projTitle[x]}`
             document.getElementsByClassName('projDesc')[0].innerText = `${projDesc[x]}.`
+            console.log(projLnk.outerHTML)
+            projLnk.href = projGit[x]
             projTxts[x].style.display = "flex"
             currentProj = x;
         }
@@ -230,7 +234,6 @@ function makeDiv (x) {
                 document.getElementById('myVideo').play()
                 document.getElementById('resumeImg').style.opacity = '.25'
                 document.querySelector(':root').style.setProperty('--inPgBkgrClr', 'red')
-                document.querySelector(':root').style.setProperty('--txtClr', 'aqua')
             }
             openB = true
         } else {
@@ -240,7 +243,6 @@ function makeDiv (x) {
                 document.getElementById('myVideo').pause()
                 document.getElementById('resumeImg').style.opacity = '1'
                 document.querySelector(':root').style.setProperty('--inPgBkgrClr', 'rgba(93, 177, 223, 0.95)')
-                document.querySelector(':root').style.setProperty('--txtClr', 'rgb(20, 0, 123)')
             }
             openB = false
         }

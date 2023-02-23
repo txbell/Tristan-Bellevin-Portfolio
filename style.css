@@ -14,7 +14,8 @@
     --txtClr: rgb(20, 0, 123);
     --bkgrClr: #ffffff;
     --inPgBkgrClr: rgba(93, 177, 223, 0.95);
-    --inPgInnerClr: rgba(255,255,255,.7)
+    --inPgInnerClr: rgba(255,255,255,.7);
+    --inPgBkgrFOP: rgb(139, 198, 229);
 }
 
 #titBar {
@@ -97,7 +98,7 @@ article:active { text-decoration: none; color: var(--txtClr); padding: 3px 0; ba
     display: inline-grid;
     grid-column: 5/span 2;
     grid-row: 4/ span 4;
-    background-color: rgba(93, 177, 223, 0.75);
+    background-color: var(--inPgBkgrFOP);
     justify-content: center;
     align-items: center;
 }
@@ -112,7 +113,7 @@ article:active { text-decoration: none; color: var(--txtClr); padding: 3px 0; ba
     text-align: center;
     padding: 7vw 0;
     font-size: 30px;
-    background-color: rgba(93, 177, 223, 0.75);
+    background-color: var(--inPgBkgrFOP);
     color: var(--txtClr);
     text-decoration: none;
 }
@@ -133,11 +134,13 @@ article:active { text-decoration: none; color: var(--txtClr); padding: 3px 0; ba
 }
 
 .link {
+    display: block;
     text-align: center;
-    background-color: rgba(93, 177, 223, 0.75);
+    background-color: var(--inPgBkgrFOP);
     z-index: 1;
-    width: 10vw;
-    height: 10vh;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 #lnk1 {
@@ -153,6 +156,10 @@ article:active { text-decoration: none; color: var(--txtClr); padding: 3px 0; ba
 #lnk3 {
     grid-column: 6/span 1;
     grid-row: 8/span 1;
+    position: relative;
+    top: -20%;
+    height: 130%;
+    z-index: -1;
 }
 
 #lnk4 {
@@ -195,7 +202,7 @@ article:active { text-decoration: none; color: var(--txtClr); padding: 3px 0; ba
         grid-area: 3 / 9 / span 2 / span 2 !important;
     }
     .nuxt {
-        padding: 5vw 0 !important;
+        padding: 45px 0 !important;
     }
 }
 @media (max-width: 768px) {
@@ -270,7 +277,7 @@ button.col-3 {
     background-color: var(--inPgInnerClr);
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
     #about-mePg {
         background-image: none;
         background-color: rgba(50, 132, 209, 0.95);
@@ -294,20 +301,18 @@ button.col-3 {
     background-color: var(--inPgBkgrClr);
 }
 
-.lnr.lnr-chevron-left.col-12.col-lg-1 {
+.lnr.col-12.col-lg-1 {
     font-size: 10vh;
-    padding: 4vh 0;
+    padding: 7vh 0 0;
     border: 2px solid var(--txtClr);
     margin: 0 3vw;
     text-align: center;
 }
 
-.lnr.lnr-chevron-right.col-12.col-lg-1 {
-    font-size: 10vh;
-    padding: 4vh 0;
-    border: 2px solid var(--txtClr);
-    margin: 0 3vw;
-    text-align: center;
+@media (max-width = 992px) {
+    .lnr.col-12.col-lg-1 {
+        padding: 30px !important;
+    }
 }
 
 #proj1Img {
@@ -343,6 +348,11 @@ div.projHead {
     padding-top: 2vh;
     padding-bottom: 2vh;
     text-align: center;
+}
+
+.col-2.align-self-center {
+    text-decoration: none;
+    color: var(--txtClr);
 }
 
 .projName {
