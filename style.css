@@ -382,4 +382,17 @@ div.projHead {
 
 img.col-8.gy-5 {
     opacity: 1;
+    animation: grow 4s linear;
+}
+
+@keyframes grow {
+    from {
+        scale: 0%;
+        rotate: -720deg;
+    }
+
+    to {
+        scale: 100%;
+        rotate: 720deg;
+    }
 }

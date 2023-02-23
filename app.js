@@ -17,7 +17,7 @@ const boxArr = [ {row: "1/ span 5", column: "1/span 3",}, {row: "1/ span 1", col
     {row: "9/ span 2", column: "4/span 4",},  {row: "8/ span 3", column: "1/span 3",}, {row: "6/ span 2", column: "1/span 1",},]
 
 // creating array with colors
-const bckgrndColor = ["#ffffff", "rgba(93, 177, 223, 0.95)", "rgb(20, 0, 123)"]
+const bckgrndColor = ["#ffffff", "rgba(93, 177, 223, 0.99)", "rgb(20, 0, 123)"]
 
 // If statement tests what the window width is upon page load
 if (window.innerWidth > 768 && window.innerWidth < 992) {
@@ -62,6 +62,7 @@ function makeDiv (x) {
             }
             console.log(sessionStorage.getItem('meme'))
         })
+    } else if (x===8) {
     }
     bod.append(deev)
 }
@@ -248,5 +249,7 @@ function makeDiv (x) {
         }
     }
 }
-
+document.body.addEventListener('click', () => {
+    console.log('clicked!')
+})
 console.log("JS ran")
